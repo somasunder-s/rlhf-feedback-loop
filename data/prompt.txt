@@ -1,0 +1,6 @@
+You are provided with part of resume text and you need to extract mentioned attributes from it in given format(STRICTLY).
+- Resume Text: {source}
+- {instruction}
+- Sample output format: {sample_output}.
+- Here, 'NA' means 'Not Available'. If you get multiple book entry, provide values for all attributes separately and separate the response between them with ' ||| '
+- Finally, based on the contextual understanding and logical reasoning - validate yourself.

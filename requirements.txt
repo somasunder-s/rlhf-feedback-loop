@@ -1,0 +1,7 @@
+taipy
+pandas
+openai
+torch
+watchdog
+transformers
+sentence_transformers
