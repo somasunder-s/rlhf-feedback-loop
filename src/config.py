@@ -6,13 +6,13 @@ LOCAL_MODEL_PATH = '../data/models/book_metadata_model'
 
 current_json_file_path = '../data/temp/current_response.json'
 
-# Constants for instructions - BOOK_METADATA
-INSTRUCTION = ("Instruction: Extract book_title, book_work_description,"
-               " book_genre, book_author, book_year_published")
+# Constants for instructions — book metadata extraction
+INSTRUCTION = ("Instruction: Extract book_title, book_author,"
+               " book_year_published, book_genre, book_summary")
 
-SAMPLE_OUTPUT = ("'book_title: (synthetic placeholder) | "
-                 "book_summary: Seeking practical experience in web development,"
-                 " interface design, and responsive coding. Eager to apply and expand HTML, "
-                 "CSS, and JavaScript skills within a dynamic team environment. | "
-                 "book_genre: NA | book_author: Frontend Book entry | "
-                 "book_year_published: NA'")
+SAMPLE_OUTPUT = ("'book_title: The Great Gatsby | "
+                 "book_author: F. Scott Fitzgerald | "
+                 "book_year_published: 1925 | "
+                 "book_genre: Literary fiction | "
+                 "book_summary: A young Long Island bond trader narrates the rise and fall of Jay Gatsby, "
+                 "a self-made millionaire whose obsession with Daisy Buchanan exposes the hollowness of the Jazz Age.'")

@@ -68,7 +68,7 @@ feedback_as_text_input = {key: None for key in current_local_val.keys()}
 current_similarity_score = {}
 
 # Initialize variables for book entry
-company_name, description, end_date, job_title, start_date = [None] * 5
+title, summary, genre, author, year_published = [None] * 5
 li_title, li_summary, li_genre, li_author, li_year_published = [None] * 5
 gi_title, gi_summary, gi_genre, gi_author, gi_year_published = [None] * 5
 
@@ -313,11 +313,11 @@ with tgb.Page() as provide_feedback:
     with tgb.layout('1 1 1 1'):
         with tgb.part():
             tgb.text("#### Attributes", mode="md")
-            tgb.text('##### company_name', mode="md")
-            tgb.text('##### job_title', mode="md")
-            tgb.text('##### end_date', mode="md")
-            tgb.text('##### start_date', mode="md")
-            tgb.text('##### description', mode="md")
+            tgb.text('##### title', mode="md")
+            tgb.text('##### author', mode="md")
+            tgb.text('##### genre', mode="md")
+            tgb.text('##### year_published', mode="md")
+            tgb.text('##### summary', mode="md")
         with tgb.part():
             tgb.text("#### Local Model Response : {lmp}%", mode="md")
             tgb.selector(value="{li_title}", lov="{[current_local_val['book_title']]}",

@@ -1,6 +1,6 @@
-You are provided with part of resume text and you need to extract mentioned attributes from it in given format(STRICTLY).
-- Resume Text: {source}
+You are provided with a passage describing a book and you need to extract the listed attributes from it in the given format (STRICTLY).
+- Passage: {source}
 - {instruction}
 - Sample output format: {sample_output}.
-- Here, 'NA' means 'Not Available'. If you get multiple book entry, provide values for all attributes separately and separate the response between them with ' ||| '
-- Finally, based on the contextual understanding and logical reasoning - validate yourself.
+- Here, 'NA' means 'Not Available'. If multiple books are described, provide attributes for each separately and separate the responses with ' ||| '.
+- Finally, based on contextual understanding and logical reasoning, validate your output is consistent with the passage.
