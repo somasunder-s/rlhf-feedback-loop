@@ -2,7 +2,7 @@
 
 A **human-in-the-loop annotation tool** for capturing structured feedback on LLM outputs — specifically, comparing a fine-tuned local GPT-2 against GPT-4o-mini on a resume-section entity-extraction task. Built with Taipy as the GUI layer.
 
-The captured feedback is the **first half of an RLHF / preference-learning pipeline**: human ratings collected here become training signal for downstream reward modeling or DPO.
+The output is a **preference dataset** suitable for downstream reward-model training, DPO, or supervised fine-tuning. This repo is the data-collection step only — no reward model is trained here. The "rlhf" in the name reflects the intended downstream use; what's implemented is the per-field human-feedback capture.
 
 ## What it does
 
@@ -32,7 +32,11 @@ The captured feedback is the **first half of an RLHF / preference-learning pipel
 - **Two-model comparison in one pass** — every example is scored against both a small fine-tuned model and a large API model. The captured deltas tell you where the local model is competitive vs. where it's losing.
 - **Per-field feedback, not per-example** — extraction tasks have multi-field outputs. A binary "good/bad" loses information; this captures correctness *per field* (company / title / dates / description).
 - **Similarity scoring beyond exact match** — sentence-transformer embeddings catch paraphrases and minor wording differences that exact string match would mark as wrong.
-- **Output is RLHF-ready** — feedback CSV maps source → both model responses → human-corrected version → field-level scores. Direct input to a reward model or DPO setup.
+- **Output schema is preference-friendly** — feedback CSV maps source → both model responses → human-corrected version → per-field correctness flags + similarity scores. Drops directly into a pairwise-preference table for reward-model / DPO training, or into supervised fine-tuning data.
+
+## Why Taipy (and not Streamlit / Gradio)
+
+Streamlit and Gradio are excellent for one-shot demos but awkward for **multi-field forms with per-field state and routing across rows of a dataset**. Taipy's state model treats the whole annotation session as a typed object, which makes "field-level correctness flag → save → next row" a natural pattern instead of a hack around session_state. The trade-off is more setup boilerplate; for a tool that's used internally for hours at a time, that's worth it.
 
 ## Tech stack
 
